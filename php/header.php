@@ -36,7 +36,7 @@ update_auction_status(); // Update auction status on each page load
                 <div>
                     <a href="index.php" class="text-2xl font-bold flex items-center">
                         <i class="fas fa-gavel mr-2"></i>
-                        <span>BidHub</span>
+                        <span>BidPulse</span>
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-6">

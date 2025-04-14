@@ -17,7 +17,7 @@ include 'php/header.php';
         <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2 space-y-6">
                 <h1 class="text-5xl font-bold leading-tight">Discover & Bid on <span class="text-blue-200">Extraordinary</span> Items</h1>
-                <p class="text-xl text-blue-100 leading-relaxed">Experience the thrill of online auctions with BidHub - where unique treasures await your winning bid.</p>
+                <p class="text-xl text-blue-100 leading-relaxed">Experience the thrill of online auctions with BidPulse - where unique treasures await your winning bid.</p>
                 <div class="flex space-x-6 pt-4">
                     <a href="browse.php" class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transform hover:scale-105 transition duration-300 shadow-lg">Browse Auctions</a>
                     <?php if (!is_logged_in()): ?>
@@ -194,7 +194,7 @@ include 'php/header.php';
                     </div>
                 </div>
             </div>
-            <p class="text-gray-600">"I've been using BidHub for a year now and have found some amazing items at great prices. The bidding process is transparent and secure."</p>
+            <p class="text-gray-600">"I've been using BidPulse for a year now and have found some amazing items at great prices. The bidding process is transparent and secure."</p>
         </div>
         <div class="bg-white rounded-lg shadow-md p-6">
             <div class="flex items-center mb-4">
@@ -212,7 +212,7 @@ include 'php/header.php';
                     </div>
                 </div>
             </div>
-            <p class="text-gray-600">"BidHub has been a game-changer for my collecting hobby. I've won several rare items, and the platform makes it easy to track my bidding history."</p>
+            <p class="text-gray-600">"BidPulse has been a game-changer for my collecting hobby. I've won several rare items, and the platform makes it easy to track my bidding history."</p>
         </div>
     </div>
 </section>
@@ -221,7 +221,7 @@ include 'php/header.php';
 <section class="bg-blue-600 text-white py-12 rounded-lg mb-8">
     <div class="container mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-4">Ready to Start Bidding?</h2>
-        <p class="text-xl mb-6">Join thousands of users who buy and sell on BidHub every day.</p>
+        <p class="text-xl mb-6">Join thousands of users who buy and sell on BidPulse every day.</p>
         <?php if (!is_logged_in()): ?>
         <div class="flex justify-center space-x-4">
             <a href="register.php" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Create Account</a>

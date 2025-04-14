@@ -5,7 +5,7 @@
         <div class="container mx-auto px-4 py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">BidHub</h3>
+                    <h3 class="text-xl font-semibold mb-4">BidPulse</h3>
                     <p class="text-blue-200 mb-4">The premier online auction platform where you can buy and sell items through a transparent bidding process.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="border-t border-blue-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p>© 2025 BidHub | All Rights Reserved</p>
+                <p>© 2025 BidPulse | All Rights Reserved</p>
                 <div class="mt-4 md:mt-0">
                     <a href="#" class="text-blue-200 hover:text-white mx-2">Privacy Policy</a>
                     <a href="#" class="text-blue-200 hover:text-white mx-2">Terms of Service</a>

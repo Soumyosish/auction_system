@@ -30,7 +30,7 @@ include 'php/header.php';
 <div class="bg-blue-600 text-white py-6 rounded-lg mb-8">
     <div class="container mx-auto px-4">
         <h1 class="text-3xl font-bold">Contact Us</h1>
-        <p class="text-lg mt-2">Get in touch with the BidHub team</p>
+        <p class="text-lg mt-2">Get in touch with the BidPulse team</p>
     </div>
 </div>
 

@@ -6,7 +6,7 @@ include 'php/header.php';
 <!-- Page Header -->
 <div class="bg-blue-600 text-white py-6 rounded-lg mb-8">
     <div class="container mx-auto px-4">
-        <h1 class="text-3xl font-bold">About BidHub</h1>
+        <h1 class="text-3xl font-bold">About BidPulse</h1>
         <p class="text-lg mt-2">Learn more about our online auction platform</p>
     </div>
 </div>
@@ -17,13 +17,13 @@ include 'php/header.php';
         <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
             <h2 class="text-2xl font-bold mb-4">Our Story</h2>
             <p class="text-gray-700 mb-4">
-                BidHub was founded in 2025 with a simple mission: to create a transparent, secure, and user-friendly platform where people can buy and sell items through online auctions.
+                BidPulse was founded in 2025 with a simple mission: to create a transparent, secure, and user-friendly platform where people can buy and sell items through online auctions.
             </p>
             <p class="text-gray-700 mb-4">
                 Our platform brings together buyers and sellers from around the world, providing a marketplace for unique items, collectibles, electronics, fashion, and much more. We believe in the thrill of the auction process and the joy of finding that perfect item at the right price.
             </p>
             <p class="text-gray-700">
-                With BidHub, we've simplified the auction experience, making it accessible to everyone while maintaining the integrity and excitement of traditional auctions.
+                With BidPulse, we've simplified the auction experience, making it accessible to everyone while maintaining the integrity and excitement of traditional auctions.
             </p>
         </div>
         <div class="md:w-1/2">
@@ -60,7 +60,7 @@ include 'php/header.php';
             </div>
             <h3 class="text-xl font-bold mb-2">Community</h3>
             <p class="text-gray-700">
-                We foster a community of passionate buyers and sellers. BidHub is a place where people connect over shared interests and the excitement of auctions.
+                We foster a community of passionate buyers and sellers. BidPulse is a place where people connect over shared interests and the excitement of auctions.
             </p>
         </div>
     </div>
@@ -68,7 +68,7 @@ include 'php/header.php';
 
 <!-- How It Works -->
 <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-    <h2 class="text-2xl font-bold mb-6 text-center">How BidHub Works</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">How BidPulse Works</h2>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="text-center">
             <div class="relative mb-4">
@@ -76,7 +76,7 @@ include 'php/header.php';
                 <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-blue-200"></div>
             </div>
             <h3 class="text-lg font-semibold mb-2">Create an Account</h3>
-            <p class="text-gray-600">Sign up for free and set up your profile to start using BidHub.</p>
+            <p class="text-gray-600">Sign up for free and set up your profile to start using BidPulse.</p>
         </div>
         <div class="text-center">
             <div class="relative mb-4">
@@ -142,7 +142,7 @@ include 'php/header.php';
 <!-- Call to Action -->
 <div class="bg-blue-600 text-white py-12 rounded-lg text-center mb-8">
     <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-    <p class="text-xl mb-6">Join thousands of users who buy and sell on BidHub every day.</p>
+    <p class="text-xl mb-6">Join thousands of users who buy and sell on BidPulse every day.</p>
     <?php if (!is_logged_in()): ?>
     <div class="flex justify-center space-x-4">
         <a href="register.php" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Create Account</a>
