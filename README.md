@@ -26,10 +26,9 @@ Follow these steps to set up the auction system:
 ### 1. Database Setup
 
 1. Create a MySQL database named `auction_system` or use your preferred name.
-2. Import the database schema from `sql/database.sql` using phpMyAdmin or MySQL command line:
+2. Import the database schema from `auction_system.sql` using phpMyAdmin or MySQL command line:
 
 ```
-mysql -u username -p auction_system < auction_system/sql/database.sql
 ```
 
 ### 2. Configure Database Connection
