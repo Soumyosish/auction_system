@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (save_password_reset_token($email, $token)) {
             // Prepare the password reset email
             $subject = "Password Reset Request";
-            $reset_link = "http://localhost/auction_system-master/auction_system-master/reset_password.php?token=$token";
+            $reset_link = "http://localhost/auction_system/reset_password.php?token=$token";
             $message = "
                 <html>
                 <head>

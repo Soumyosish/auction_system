@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result['success']) {
         // Prepare verification email
         $verification_token = $result['verification_token'];
-        $verification_link = "http://localhost/auction_system-master/auction_system-master/verify_email.php?token=$verification_token";
+        $verification_link = "http://localhost/auction_system/verify_email.php?token=$verification_token";
         $subject = "Verify Your Email - BidPulse";
         $message = "
             <html>

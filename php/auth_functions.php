@@ -118,13 +118,8 @@ function login_user($username, $password) {
         if(mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
 
-            // Check if email is verified
-            if(!$user['is_verified']) {
-                $errors[] = "Your email is not verified. Please check your inbox and verify your email before logging in.";
-                return ["success" => false, "errors" => $errors];
-            }
-
-            // Verify password
+            // Remove email verification check
+            // Verify password only
             if(password_verify($password, $user['password'])) {
                 // Password is correct, set session variables
                 $_SESSION['user_id'] = $user['user_id'];
