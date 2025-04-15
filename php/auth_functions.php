@@ -71,13 +71,18 @@ function register_user($username, $email, $password, $confirm_password, $first_n
         // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert user into database
-        $insert_query = "INSERT INTO users (username, email, password, first_name, last_name) VALUES (?, ?, ?, ?, ?)";
+        // Generate email verification token
+        $verification_token = bin2hex(random_bytes(32));
+        $is_verified = 0;
+
+        // Insert user into database with verification token and is_verified
+        $insert_query = "INSERT INTO users (username, email, password, first_name, last_name, verification_token, is_verified) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $insert_query);
-        mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashed_password, $first_name, $last_name);
+        mysqli_stmt_bind_param($stmt, "ssssssi", $username, $email, $hashed_password, $first_name, $last_name, $verification_token, $is_verified);
 
         if(mysqli_stmt_execute($stmt)) {
-            return ["success" => true, "message" => "Registration successful. You can now log in."];
+            // Return token for sending verification email
+            return ["success" => true, "message" => "Registration successful. Please check your email to verify your account.", "verification_token" => $verification_token, "email" => $email];
         } else {
             $errors[] = "Registration failed: " . mysqli_error($conn);
         }
@@ -112,6 +117,12 @@ function login_user($username, $password) {
 
         if(mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
+
+            // Check if email is verified
+            if(!$user['is_verified']) {
+                $errors[] = "Your email is not verified. Please check your inbox and verify your email before logging in.";
+                return ["success" => false, "errors" => $errors];
+            }
 
             // Verify password
             if(password_verify($password, $user['password'])) {
@@ -273,5 +284,30 @@ function change_password($user_id, $current_password, $new_password, $confirm_pa
     }
 
     return ["success" => false, "errors" => $errors];
+}
+
+
+
+function email_exists($email) {
+    global $conn; // Use the correct database connection variable
+
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query); 
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    return $result->num_rows > 0; // Return true if email exists, false otherwise
+}
+
+function save_password_reset_token($email, $token) {
+    global $conn; // Use the correct database connection variable
+
+    $expires_at = date("Y-m-d H:i:s", strtotime("+1 hour")); // Token expires in 1 hour
+    $query = "UPDATE users SET reset_token = ?, reset_token_expires = ? WHERE email = ?";
+    $stmt = $conn->prepare($query); 
+    $stmt->bind_param("sss", $token, $expires_at, $email);
+
+    return $stmt->execute(); // Return true if the query was successful
 }
 ?>
