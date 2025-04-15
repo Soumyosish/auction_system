@@ -126,7 +126,7 @@ include 'php/header.php';
             <div class="mb-8">
                 <label for="starting_price" class="block text-gray-700 text-lg font-semibold mb-2">Starting Price</label>
                 <div class="relative">
-                    <span class="absolute left-3 top-3 text-gray-600 font-medium">$</span>
+                    <span class="absolute left-3 top-3 text-gray-600 font-medium">Rs  </span>
                     <input type="number" id="starting_price" name="starting_price" step="0.01" min="0.01" class="w-full pl-8 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200" placeholder="0.00" value="<?php echo isset($_POST['starting_price']) ? htmlspecialchars($_POST['starting_price']) : ''; ?>" required>
                 </div>
             </div>
