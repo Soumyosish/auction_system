@@ -69,7 +69,7 @@ include 'php/header.php';
                             <a href="auction.php?id=<?php echo $bid['auction_id']; ?>" class="text-blue-600 hover:text-blue-800 font-medium"><?php echo $bid['auction_title']; ?></a>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap font-semibold">
-                            $<?php echo number_format($bid['bid_amount'], 2); ?>
+                            Rs <?php echo number_format($bid['bid_amount'], 2); ?>
                             <?php if($bid['bid_amount'] == $bid['current_price']): ?>
                             <span class="inline-block ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Highest Bid</span>
                             <?php elseif($bid['bid_amount'] < $bid['current_price']): ?>
@@ -77,7 +77,7 @@ include 'php/header.php';
                             <?php endif; ?>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            $<?php echo number_format($bid['current_price'], 2); ?>
+                            Rs <?php echo number_format($bid['current_price'], 2); ?>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <?php if($bid['status'] == 'active'): ?>
@@ -128,7 +128,7 @@ include 'php/header.php';
                 <div class="flex justify-between items-center mb-3">
                     <div>
                         <p class="text-sm text-gray-500">Final Price:</p>
-                        <p class="text-xl font-bold text-green-600">$<?php echo number_format($auction['winning_bid'], 2); ?></p>
+                        <p class="text-xl font-bold text-green-600">Rs <?php echo number_format($auction['winning_bid'], 2); ?></p>
                     </div>
                     <div class="text-right">
                         <p class="text-sm text-gray-500">Auction Ended:</p>
