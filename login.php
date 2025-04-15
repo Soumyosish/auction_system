@@ -2,7 +2,7 @@
 require_once 'php/config.php';
 require_once 'php/auth_functions.php';
 
-// Check if user is already logged in
+
 if(is_logged_in()) {
     redirect('index.php');
     exit;
@@ -11,26 +11,26 @@ if(is_logged_in()) {
 $error = '';
 $message = '';
 
-// Check if form was submitted
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $username = sanitize_input($_POST['username']);
-    $password = $_POST['password']; // Don't sanitize password
+    $password = $_POST['password']; 
 
-    // Attempt to login
+  
     $result = login_user($username, $password);
 
     if($result['success']) {
-        // Login successful, redirect to homepage
+      
         redirect('index.php');
         exit;
     } else {
-        // Login failed, display error message
+       
         $error = implode('<br>', $result['errors']);
     }
 }
 
-// Check if there's a registration success message
+
 if(isset($_SESSION['registration_success'])) {
     $message = $_SESSION['registration_success'];
     unset($_SESSION['registration_success']);
@@ -72,6 +72,7 @@ include 'php/header.php';
 
     <div class="mt-6 text-center">
         <p class="text-gray-600">Don't have an account? <a href="register.php" class="text-blue-600 hover:text-blue-800">Register</a></p>
+        <p class="text-gray-600 mt-2">Forgot your password? <a href="forgot_password.php" class="text-blue-600 hover:text-blue-800">Reset Password</a></p>
     </div>
 </div>
 
