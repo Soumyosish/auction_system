@@ -1,7 +1,7 @@
 <?php
 require_once 'php/config.php';
 require_once 'php/auth_functions.php';
-
+require_once 'email.php';
 // Check if user is already logged in
 if(is_logged_in()) {
     redirect('index.php');
@@ -11,7 +11,7 @@ if(is_logged_in()) {
 $error = '';
 
 // Check if form was submitted
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
     $username = sanitize_input($_POST['username']);
     $email = sanitize_input($_POST['email']);
@@ -23,16 +23,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Attempt to register
     $result = register_user($username, $email, $password, $confirm_password, $first_name, $last_name);
 
-    if($result['success']) {
-        // Registration successful, set success message and redirect to login page
-        $_SESSION['registration_success'] = $result['message'];
-        redirect('login.php');
-        exit;
+    if ($result['success']) {
+        // Prepare verification email
+        $verification_token = $result['verification_token'];
+        $verification_link = "http://localhost/auction_system-master/auction_system-master/verify_email.php?token=$verification_token";
+        $subject = "Verify Your Email - BidPulse";
+        $message = "
+            <html>
+            <head>
+                <title>Email Verification</title>
+            </head>
+            <body>
+                <h1>Hi $first_name,</h1>
+                <p>Thank you for registering on BidPulse. Please verify your email address by clicking the button below:</p>
+                <a href='$verification_link' style='display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;'>Verify Email</a>
+                <p>If you did not register for this account, please ignore this email.</p>
+            </body>
+            </html>
+        ";
+
+        // Send verification email
+        if (send_email($email, $subject, $message)) {
+            $_SESSION['registration_success'] = "Registration successful! Please check your email to verify your account.";
+            redirect('login.php');
+            exit;
+        } else {
+            $error = "Registration successful, but the verification email could not be sent.";
+        }
     } else {
         // Registration failed, display error message
         $error = implode('<br>', $result['errors']);
     }
 }
+
 
 include 'php/header.php';
 ?>
@@ -148,4 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include 'php/footer.php'; ?>
+<?php   
+include 'php/footer.php'; ?>
+
+
+
