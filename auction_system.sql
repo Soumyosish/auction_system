@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2025 at 09:22 AM
+-- Generation Time: Apr 15, 2025 at 05:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -22,6 +22,25 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `auction_system` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `auction_system`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -60,9 +79,9 @@ INSERT INTO `auctions` (`auction_id`, `title`, `description`, `image_url`, `sell
 (8, 'Signed Album', 'Vinyl album with authentic artist signature', 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89', 3, 6, 650.00, 650.00, '2025-04-13 16:17:49', '2025-04-20 16:17:49', 'active', '2025-04-13 19:47:49', '2025-04-13 19:47:49'),
 (9, 'Vintage Camera', 'Classic mechanical camera in working condition', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32', 3, 6, 9800.00, 9800.00, '2025-04-13 16:18:34', '2025-04-18 16:18:34', 'active', '2025-04-13 19:48:34', '2025-04-13 19:48:34'),
 (10, 'Sports Memorabilia', 'Championship game-used equipment', 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211', 3, 6, 1100.00, 1100.00, '2025-04-13 16:19:35', '2025-04-20 16:19:35', 'active', '2025-04-13 19:49:35', '2025-04-13 19:49:35'),
-(11, 'Limited Edition Print', 'Contemporary Numbered artist print with certificate', 'https://images.unsplash.com/photo-1579783483458-83d02161294e', 3, 6, 890.00, 1200.00, '2025-04-13 21:42:30', '2025-04-16 16:20:38', 'active', '2025-04-13 19:50:38', '2025-04-13 21:42:30'),
+(11, 'Limited Edition Print', 'Contemporary Numbered artist print with certificate', 'https://images.unsplash.com/photo-1579783483458-83d02161294e', 3, 6, 890.00, 1500.00, '2025-04-14 15:54:30', '2025-04-16 16:20:38', 'active', '2025-04-13 19:50:38', '2025-04-14 15:54:30'),
 (12, 'Modern Sculpture', 'An elegant stainless steel sculpture with flowing lines and negative space, exploring themes of movement and balance.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShWox6VjWb_mrvdyKdwwzQxTta3bMlb0SsAQ&amp;s', 2, 5, 4500.00, 4500.00, '2025-04-13 16:23:38', '2025-04-16 16:23:38', 'active', '2025-04-13 19:53:38', '2025-04-13 19:53:38'),
-(13, 'Watercolor Landscape', 'A serene watercolor painting capturing a misty mountain landscape at dawn, with delicate color transitions and masterful technique.', 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9', 2, 5, 2800.00, 2800.00, '2025-04-13 16:24:31', '2025-04-16 16:24:31', 'active', '2025-04-13 19:54:31', '2025-04-13 19:54:31'),
+(13, 'Watercolor Landscape', 'A serene watercolor painting capturing a misty mountain landscape at dawn, with delicate color transitions and masterful technique.', 'https://images.unsplash.com/photo-1578301978693-85fa9c0320b9', 2, 5, 2800.00, 2800.02, '2025-04-15 07:57:58', '2025-04-16 16:24:31', 'active', '2025-04-13 19:54:31', '2025-04-15 07:57:58'),
 (14, 'Contemporary Portrait', 'A striking modern portrait using mixed media, combining traditional oil painting with contemporary abstract elements.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTigcqrnbsofviMlb19nIEQ0tGKTkjstYgBiw&amp;s', 2, 5, 5600.00, 5600.00, '2025-04-13 16:25:23', '2025-04-18 16:25:23', 'active', '2025-04-13 19:55:23', '2025-04-13 19:55:23'),
 (15, 'Bronze Statue', 'A classical bronze sculpture depicting human form in motion, showcasing exceptional craftsmanship and attention to detail.', 'https://images.unsplash.com/photo-1576020799627-aeac74d58064', 2, 5, 7800.00, 7800.00, '2025-04-13 16:26:14', '2025-04-20 16:26:14', 'active', '2025-04-13 19:56:14', '2025-04-13 19:56:14'),
 (16, 'Latest Gaming Console', 'Next-gen gaming console with 4K capabilities', 'https://images.unsplash.com/photo-1486401899868-0e435ed85128', 2, 1, 4500.00, 4500.00, '2025-04-13 16:27:34', '2025-04-23 16:27:34', 'active', '2025-04-13 19:57:34', '2025-04-13 19:57:34'),
@@ -72,21 +91,6 @@ INSERT INTO `auctions` (`auction_id`, `title`, `description`, `image_url`, `sell
 (20, 'Graphic Card', 'High-end gaming graphics card', 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c', 2, 1, 7500.00, 7500.00, '2025-04-13 16:31:17', '2025-04-23 16:31:17', 'active', '2025-04-13 20:01:17', '2025-04-13 20:01:17'),
 (21, 'Smart Watch', 'Latest smartwatch with health features', 'https://images.unsplash.com/photo-1544117519-31a4b719223d', 2, 1, 2800.00, 3000.00, '2025-04-13 20:35:08', '2025-04-23 16:32:58', 'active', '2025-04-13 20:02:58', '2025-04-13 20:35:08'),
 (22, 'Smart Home Hub', 'Smart home control center', 'https://m.media-amazon.com/images/I/61tMoVGYglL._AC_UF1000,1000_QL80_.jpg', 2, 1, 18000.00, 18000.00, '2025-04-13 16:33:51', '2025-04-23 16:33:51', 'active', '2025-04-13 20:03:51', '2025-04-13 20:03:51'),
-(23, 'Designer Handbag', 'Authentic leather designer handbag', 'https://images.unsplash.com/photo-1584917865442-de89df76afd3', 4, 2, 890.00, 890.00, '2025-04-13 16:38:46', '2025-04-23 16:38:46', 'active', '2025-04-13 20:08:46', '2025-04-13 20:08:46'),
-(24, 'Luxury Sunglasses', 'Limited edition designer sunglasses', 'https://images.unsplash.com/photo-1511499767150-a48a237f0083', 4, 2, 4500.00, 4500.00, '2025-04-13 16:39:33', '2025-04-23 16:39:33', 'active', '2025-04-13 20:09:33', '2025-04-13 20:09:33'),
-(25, 'Designer Shoes', 'Iconic red-sole designer shoes', 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2', 4, 2, 6800.00, 7000.00, '2025-04-14 06:37:50', '2025-04-23 16:40:18', 'active', '2025-04-13 20:10:18', '2025-04-14 06:37:50'),
-(26, 'Vintage Jacket', 'Classic vintage leather jacket', 'https://images.unsplash.com/photo-1551028719-00167b16eac5', 4, 2, 3400.00, 3400.00, '2025-04-13 16:41:01', '2025-04-23 16:41:01', 'active', '2025-04-13 20:11:01', '2025-04-13 20:11:01'),
-(27, 'Designer Belt', 'Signature H buckle leather belt', 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62', 4, 2, 2900.00, 2900.00, '2025-04-13 16:41:46', '2025-04-23 16:41:46', 'active', '2025-04-13 20:11:46', '2025-04-13 20:11:46'),
-(28, 'Limited Edition Watch', 'Limited edition luxury timepiece', 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3', 4, 2, 12000.00, 12000.00, '2025-04-13 16:42:54', '2025-04-23 16:42:54', 'active', '2025-04-13 20:12:54', '2025-04-13 20:12:54'),
-(29, 'Luxury Wallet', 'Premium leather designer wallet', 'https://images.unsplash.com/photo-1627123424574-724758594e93', 4, 2, 4200.00, 4200.00, '2025-04-13 16:43:42', '2025-04-23 16:43:42', 'active', '2025-04-13 20:13:42', '2025-04-13 20:13:42'),
-(30, 'Premium leather designer wallet', 'Beautifully crafted antique dining table', 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88', 4, 3, 12000.00, 12000.00, '2025-04-13 16:46:25', '2025-04-23 16:46:25', 'active', '2025-04-13 20:16:25', '2025-04-13 20:16:25'),
-(31, 'Vintage Chandelier', 'Crystal chandelier with brass finish', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS6TTCBH9igCQtaRTL07OOVn9fc4FO5nlzUw&amp;s', 4, 3, 8500.00, 8500.00, '2025-04-13 16:50:46', '2025-04-23 16:50:46', 'active', '2025-04-13 20:20:46', '2025-04-13 20:20:46'),
-(32, 'Persian Carpet', 'Hand-knotted Persian carpet', 'https://images.unsplash.com/photo-1600166898405-da9535204843', 4, 3, 2200.00, 2200.00, '2025-04-13 16:51:47', '2025-04-23 16:51:47', 'active', '2025-04-13 20:21:47', '2025-04-13 20:21:47'),
-(33, 'Antique Mirror', 'Ornate gold-framed mirror', 'https://images.unsplash.com/photo-1618220179428-22790b461013', 4, 3, 4800.00, 5000.00, '2025-04-13 21:41:40', '2025-04-18 16:52:51', 'active', '2025-04-13 20:22:51', '2025-04-13 21:41:40'),
-(34, 'Vintage Armchair', 'Classic mid-century armchair', 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c', 4, 3, 9500.00, 9500.00, '2025-04-13 16:53:36', '2025-04-23 16:53:36', 'active', '2025-04-13 20:23:36', '2025-04-13 20:23:36'),
-(35, 'Crystal Vase Set', 'Set of three crystal vases', 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7', 4, 3, 4800.00, 4800.00, '2025-04-13 16:54:21', '2025-04-23 16:54:21', 'active', '2025-04-13 20:24:21', '2025-04-13 20:24:21'),
-(36, 'Antique Clock', 'Grandfather clock', 'https://images.unsplash.com/photo-1415604934674-561df9abf539', 4, 3, 7500.00, 7500.00, '2025-04-13 16:55:14', '2025-04-20 16:55:14', 'active', '2025-04-13 20:25:14', '2025-04-13 20:25:14'),
-(37, 'Art Deco Lamp', 'Art deco style table lamp', 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15', 4, 3, 580.00, 580.00, '2025-04-13 16:56:07', '2025-04-20 16:56:07', 'active', '2025-04-13 20:26:07', '2025-04-13 20:26:07'),
 (38, 'Diamond Engagement Ring', 'Elegant solitaire engagement ring', 'https://images.unsplash.com/photo-1605100804763-247f67b3557e', 5, 8, 125000.00, 125000.00, '2025-04-13 16:58:20', '2025-04-18 16:58:20', 'active', '2025-04-13 20:28:20', '2025-04-13 20:28:20'),
 (39, 'Pearl Necklace', 'Classic pearl strand necklace', 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338', 5, 8, 89000.00, 89000.00, '2025-04-13 16:59:03', '2025-04-20 16:59:03', 'active', '2025-04-13 20:29:03', '2025-04-13 20:29:03'),
 (40, 'Sapphire Bracelet', 'Vintage sapphire tennis bracelet', 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1', 5, 8, 56000.00, 56000.00, '2025-04-13 16:59:46', '2025-04-18 16:59:46', 'active', '2025-04-13 20:29:46', '2025-04-13 20:29:46'),
@@ -98,15 +102,16 @@ INSERT INTO `auctions` (`auction_id`, `title`, `description`, `image_url`, `sell
 (46, 'Indian Team Jersey', 'ADIDAS KIDS\\r\\nIndia Cricket ODI Jersey', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROyNi0EWRKFxg3hOOnD3GaAEQ8kZeiHLE6hw&amp;s', 5, 4, 4000.00, 4000.00, '2025-04-13 17:07:14', '2025-05-13 17:07:14', 'active', '2025-04-13 20:37:14', '2025-04-13 20:37:14'),
 (47, 'Nike G.T. Hustle 3', 'The G.T. Hustle 3 can help you thrive in crunch time. With double-stacked Air Zoom cushioning providing bouncy horsepower', 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/ce383eba-f9dd-4a02-9617-709c22b9bc74/G.T.+HUSTLE+3.png', 5, 4, 15000.00, 15000.00, '2025-04-13 17:09:43', '2025-05-13 17:09:43', 'active', '2025-04-13 20:39:43', '2025-04-13 20:39:43'),
 (48, 'Hockey stick', 'India&#039;s first hockey brand stick', 'https://m.media-amazon.com/images/I/31nYLa690RL._SR290,290_.jpg', 5, 4, 999.00, 999.00, '2025-04-13 17:11:07', '2025-05-13 17:11:07', 'active', '2025-04-13 20:41:07', '2025-04-13 20:41:07'),
-(49, 'Mongoose bat', 'Heega V Shaped Mongoose Kashmir Willow Bat with Double Padded Classy Bat Cover', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcREVXN-xwlFoD4K23mgDwo8x8lkskfbD3FXkHOicQT44BJGlbUOrGf_fLsz-tNyslk_baJq1QBwSFEGNCezJICLqNqghyIpLvDNPaY3bgAMjMD5qw5EHBwwACg', 5, 4, 5999.00, 5999.00, '2025-04-13 17:12:10', '2025-05-13 17:12:10', 'active', '2025-04-13 20:42:10', '2025-04-13 20:42:10'),
+(49, 'Mongoose bat', 'Heega V Shaped Mongoose Kashmir Willow Bat with Double Padded Classy Bat Cover', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcREVXN-xwlFoD4K23mgDwo8x8lkskfbD3FXkHOicQT44BJGlbUOrGf_fLsz-tNyslk_baJq1QBwSFEGNCezJICLqNqghyIpLvDNPaY3bgAMjMD5qw5EHBwwACg', 5, 4, 5999.00, 6001.00, '2025-04-14 07:03:51', '2025-05-13 17:12:10', 'active', '2025-04-13 20:42:10', '2025-04-14 07:03:51'),
 (50, 'LUDO', 'India&#039;s Ludo king', 'https://play-lh.googleusercontent.com/u8XdLDFdd-VcbvuFNyDj90pjLvkANu6cJ0Oh41aqU7jCcBRH3WohKiKsY9TGBUEZpA', 5, 4, 600.00, 600.00, '2025-04-13 17:13:09', '2025-05-13 17:13:09', 'active', '2025-04-13 20:43:09', '2025-04-13 20:43:09'),
-(51, 'Javelin', 'Buy is Wings Olympic Grade Javelin Throw Stick', 'https://m.media-amazon.com/images/I/31Rd02KQFWL._AC_UF894,1000_QL80_.jpg', 5, 4, 40000.00, 40000.00, '2025-04-13 17:14:46', '2025-04-27 17:14:46', 'active', '2025-04-13 20:44:46', '2025-04-13 20:44:46'),
+(51, 'Javelin', 'Buy is Wings Olympic Grade Javelin Throw Stick', 'https://m.media-amazon.com/images/I/31Rd02KQFWL._AC_UF894,1000_QL80_.jpg', 5, 4, 40000.00, 50000.00, '2025-04-14 15:53:07', '2025-04-27 17:14:46', 'active', '2025-04-13 20:44:46', '2025-04-14 15:53:07'),
 (52, 'Cycles', 'Olympic Edition Bicycles', 'https://ep1.pinkbike.org/p5pb20996598/p5pb20996598.jpg', 5, 4, 39999.00, 39999.00, '2025-04-13 17:16:11', '2025-04-27 17:16:11', 'active', '2025-04-13 20:46:11', '2025-04-13 20:46:11'),
 (53, 'Kawasaki ninja 300', 'Kawasaki first top model', 'https://cdn.bikedekho.com/processedimages/kawasaki/kawasaki-ninja/640X309/kawasaki-ninja647d72a380ec1.jpg', 5, 7, 375000.00, 375000.00, '2025-04-13 17:17:30', '2025-05-13 17:17:30', 'active', '2025-04-13 20:47:30', '2025-04-13 20:47:30'),
 (54, 'TVs apache rr 310', 'The TVS Apache RR 310 is a sports motorcycle known for its performance and features. It boasts a 312.2 cc liquid-cooled engine producing 34 PS in Sport/Track mode and 25.8 PS in Urban/Rain mode.', 'https://cdn.bikedekho.com/processedimages/tvs/tvs-akula-310/source/tvs-akula-31066e8234da949d.jpg', 5, 7, 300000.00, 300000.00, '2025-04-13 17:19:01', '2025-05-13 17:19:01', 'active', '2025-04-13 20:49:01', '2025-04-13 20:49:01'),
 (55, 'Toyota crysta', 'The Innova Crysta is a 7 seater 4 cylinder car and has length of 4735 mm, width of 1830 mm and a wheelbase of 2750 mm', 'https://imgd.aeplcdn.com/664x374/n/cw/ec/140809/innova-crysta-exterior-left-front-three-quarter.jpeg?isig=0&amp;q=80', 5, 7, 2000000.00, 2000000.00, '2025-04-13 17:20:16', '2025-05-13 17:20:16', 'active', '2025-04-13 20:50:16', '2025-04-13 20:50:16'),
 (56, 'Maruti Alto K10', 'The Maruti Suzuki Alto K10 is a compact hatchback known for its fuel efficiency, affordability, and practical size', 'https://imgd.aeplcdn.com/310x174/n/cw/ec/127563/alto-k10-exterior-right-front-three-quarter-62.jpeg?isig=0&amp;q=80', 5, 7, 500000.00, 500000.00, '2025-04-13 17:21:48', '2025-05-13 17:21:48', 'active', '2025-04-13 20:51:48', '2025-04-13 20:51:48'),
-(57, 'Classic 350', 'The motorcycle&#039;s improved diameter brakes, upright riding position and wider seat ensure you stay comfortable, even after hours of riding.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkOlKSGjKBh4yn1o67qcYIjTDKnH8jfvxirA&amp;s', 5, 7, 1750000.00, 1750000.00, '2025-04-13 17:23:17', '2025-05-13 17:23:17', 'active', '2025-04-13 20:53:17', '2025-04-13 20:53:17');
+(57, 'Classic 350', 'The motorcycle&#039;s improved diameter brakes, upright riding position and wider seat ensure you stay comfortable, even after hours of riding.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkOlKSGjKBh4yn1o67qcYIjTDKnH8jfvxirA&amp;s', 5, 7, 1750000.00, 1750000.00, '2025-04-13 17:23:17', '2025-05-13 17:23:17', 'active', '2025-04-13 20:53:17', '2025-04-13 20:53:17'),
+(59, 'A boat', 'a man on the boat', 'https://t3.ftcdn.net/jpg/01/40/47/42/240_F_140474254_8xWO8gem5DqbiKrGkOhghLI1MlDyoSRm.jpg', 12, 5, 700.00, 700.00, '2025-04-14 12:49:13', '2025-04-19 12:49:13', 'active', '2025-04-14 16:19:13', '2025-04-14 16:19:13');
 
 -- --------------------------------------------------------
 
@@ -132,9 +137,8 @@ INSERT INTO `bids` (`bid_id`, `auction_id`, `bidder_id`, `bid_amount`, `bid_time
 (3, 4, 5, 2600.00, '2025-04-13 20:34:48'),
 (4, 21, 5, 3000.00, '2025-04-13 20:35:08'),
 (5, 11, 2, 1000.00, '2025-04-13 21:40:48'),
-(6, 33, 2, 5000.00, '2025-04-13 21:41:40'),
-(7, 11, 4, 1200.00, '2025-04-13 21:42:30'),
-(8, 25, 2, 7000.00, '2025-04-14 06:37:50');
+(10, 51, 12, 50000.00, '2025-04-14 15:53:07'),
+(11, 11, 12, 1500.00, '2025-04-14 15:54:30');
 
 -- --------------------------------------------------------
 
@@ -179,23 +183,40 @@ CREATE TABLE `users` (
   `profile_image` varchar(255) DEFAULT 'default_profile.jpg',
   `is_admin` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `reset_token` varchar(255) DEFAULT NULL,
+  `reset_token_expires` datetime DEFAULT NULL,
+  `verification_token` varchar(64) DEFAULT NULL,
+  `is_verified` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `first_name`, `last_name`, `profile_image`, `is_admin`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@auction.com', '$2y$10$K.oUYWNRSYl1JFJ1Kqr6h.3IG1zNhC3NCyHRAgwpBbtUB.iJ0JDdi', 'Admin', 'User', 'default_profile.jpg', 1, '2025-04-13 19:27:55', '2025-04-13 19:27:55'),
-(2, 'soumyosish', 'soumyosishpal.108@gmail.com', '$2y$10$5iVXbKVF0AebPG9zNxvaYuPpBsaV.yC0ixsDH4BOmJXV5rJ/EzcxW', 'Soumyosish', 'Pal', 'default_profile.jpg', 0, '2025-04-13 19:31:25', '2025-04-13 19:31:25'),
-(3, 'Dip', 'dipanddiyapal@gmail.com', '$2y$10$/swpmwgamXa2I0HFYL90WeZWEU50FR/lo6g2T6MmtyFnSZp6WF77.', 'Dip', 'Pal', 'default_profile.jpg', 0, '2025-04-13 19:40:01', '2025-04-13 19:40:01'),
-(4, 'admin1', 'admin123@gmail.com', '$2y$10$IlJG/8GeolDjeKuc8A3v0O6ptNIB4FOpUFwLwAjHZB/wYtx.PJ69C', 'admin', 'admin', 'default_profile.jpg', 0, '2025-04-13 20:05:46', '2025-04-13 20:05:46'),
-(5, 'seller1', 'seller123@gmail.com', '$2y$10$HvRFdINQt92BTyy/nv3Hr.ty3B9agW/kW2Ft0IzG6Yhu/KOt3a5NS', 'seller', 'seller', 'default_profile.jpg', 0, '2025-04-13 20:27:26', '2025-04-13 20:27:26');
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `first_name`, `last_name`, `profile_image`, `is_admin`, `created_at`, `updated_at`, `reset_token`, `reset_token_expires`, `verification_token`, `is_verified`) VALUES
+(1, 'admin', 'admin@auction.com', '$2y$10$K.oUYWNRSYl1JFJ1Kqr6h.3IG1zNhC3NCyHRAgwpBbtUB.iJ0JDdi', 'Admin', 'User', 'default_profile.jpg', 1, '2025-04-13 19:27:55', '2025-04-13 19:27:55', NULL, NULL, NULL, 0),
+(2, 'soumyosish', 'soumyosishpal.108@gmail.com', '$2y$10$5iVXbKVF0AebPG9zNxvaYuPpBsaV.yC0ixsDH4BOmJXV5rJ/EzcxW', 'Soumyosish', 'Pal', 'default_profile.jpg', 0, '2025-04-13 19:31:25', '2025-04-13 19:31:25', NULL, NULL, NULL, 0),
+(3, 'Dip', 'dipanddiyapal@gmail.com', '$2y$10$/swpmwgamXa2I0HFYL90WeZWEU50FR/lo6g2T6MmtyFnSZp6WF77.', 'Dip', 'Pal', 'default_profile.jpg', 0, '2025-04-13 19:40:01', '2025-04-13 19:40:01', NULL, NULL, NULL, 0),
+(5, 'seller1', 'seller123@gmail.com', '$2y$10$HvRFdINQt92BTyy/nv3Hr.ty3B9agW/kW2Ft0IzG6Yhu/KOt3a5NS', 'seller', 'seller', 'default_profile.jpg', 0, '2025-04-13 20:27:26', '2025-04-13 20:27:26', NULL, NULL, NULL, 0),
+(10, 'admin2', 'admin@auctionn.com', '$2y$10$K.oUYWNRSYl1JFJ1Kqr6h.3IG1zNhC3NCyHRAgwpBbtUB.iJ0JDdi', 'Admin', 'User', 'default_profile.jpg', 1, '2025-04-13 13:57:55', '2025-04-13 13:57:55', NULL, NULL, NULL, 0),
+(12, 'Shreya26', 'shreyatpathi2006@gmail.com', '$2y$10$oaJ4QjE.7HmmJmwkdsS2YObj6HAdTh5PFE7CEuqMeTkTEx6l3D4RW', 'Shreya', 'Tripathi', 'default_profile.jpg', 0, '2025-04-14 15:36:32', '2025-04-14 15:36:32', NULL, NULL, NULL, 0),
+(13, 'Yashika', 'yashiika16@gmail.com', '$2y$10$cdMXBZtVWu.J.5WhowcZLOoW1r/QrQuIC/QqyvlKAyFYch7gcZNCK', 'Yashika', 'Mondal', 'default_profile.jpg', 0, '2025-04-15 12:29:00', '2025-04-15 12:29:00', NULL, NULL, NULL, 0),
+(14, 'Shreya6006', 'khushitack88@gmail.com', '$2y$10$BC6UEeM2w/e/aECoZZlUuuxJL.WC9LxVVagu1va3cgXwpPaBc9U8.', 'Shreya', 'Tripathi', 'default_profile.jpg', 0, '2025-04-15 12:38:02', '2025-04-15 12:38:02', NULL, NULL, NULL, 0),
+(18, 'Shreya12345', 'shreyatripathi036@gmail.com', '$2y$10$tpQdjtMp46.W9DSahwJ4eOR3zQpHaInriYX6Uk9ULup/fnY6BY8N.', 'Shreya', 'Tripathi', 'default_profile.jpg', 0, '2025-04-15 13:07:33', '2025-04-15 14:56:05', '0450d26e26dd17408f6840c811dfecdd02b31ccbb0afaa4dfde75c12d91a78cb', '2025-04-15 17:56:05', NULL, 0),
+(19, 'mraj773929', 'mraj773929@gmail.com', '$2y$10$tLh4sjJ7zcBnV7mROQoyJekgHkFw9JARRHw3xrwzQocd8Ct7E/G2m', 'Manish', 'Raj', 'default_profile.jpg', 0, '2025-04-15 15:03:25', '2025-04-15 15:03:25', NULL, NULL, NULL, 0),
+(23, 'Shreya', 'shreyatpathi2005@gmail.com', '$2y$10$Dc5cZuFoIGZW.uLqEaQBq.osW2hyG/kQXqhuB8IMu/cemFf0/m5ie', 'Shreya', 'Tripathi', 'default_profile.jpg', 0, '2025-04-15 15:25:55', '2025-04-15 15:26:22', NULL, NULL, NULL, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `auctions`
@@ -233,16 +254,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `auctions`
 --
 ALTER TABLE `auctions`
-  MODIFY `auction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `auction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `bids`
 --
 ALTER TABLE `bids`
-  MODIFY `bid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `bid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -254,7 +281,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
