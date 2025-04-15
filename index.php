@@ -102,7 +102,7 @@ include 'php/header.php';
                 <div class="flex justify-between items-center mb-3">
                     <div>
                         <p class="text-sm text-gray-500">Current Bid:</p>
-                        <p class="text-xl font-bold text-green-600">$<?php echo number_format($auction['current_price'], 2); ?></p>
+                        <p class="text-xl font-bold text-green-600">Rs <?php echo number_format($auction['current_price'], 2); ?></p>
                     </div>
                     <div class="text-right">
                         <p class="text-sm text-gray-500">Ends in:</p>
