@@ -70,7 +70,7 @@ include 'php/header.php';
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap font-semibold">
-                        $<?php echo number_format($auction['current_price'], 2); ?>
+                        Rs <?php echo number_format($auction['current_price'], 2); ?>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <?php echo $bid_count; ?>
@@ -128,7 +128,7 @@ include 'php/header.php';
     <div class="bg-white rounded-lg shadow-md p-6">
         <div class="flex items-center">
             <div class="p-3 rounded-full bg-green-100 text-green-800 mr-4">
-                <i class="fas fa-dollar-sign text-xl"></i>
+                <i class="fas fa-inr text-xl"></i>
             </div>
             <div>
                 <p class="text-sm text-gray-500">Active Auctions</p>
