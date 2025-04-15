@@ -104,11 +104,11 @@ include 'php/header.php';
                 <div class="border-t border-b border-gray-200 py-4 mb-4">
                     <div class="flex justify-between mb-2">
                         <span class="text-gray-600">Starting Price:</span>
-                        <span class="font-semibold">$<?php echo number_format($auction['starting_price'], 2); ?></span>
+                        <span class="font-semibold">Rs <?php echo number_format($auction['starting_price'], 2); ?></span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span class="text-gray-600">Current Bid:</span>
-                        <span class="font-bold text-xl text-green-600">$<?php echo number_format($auction['current_price'], 2); ?></span>
+                        <span class="font-bold text-xl text-green-600">Rs <?php echo number_format($auction['current_price'], 2); ?></span>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-gray-600">Auction Ends:</span>
@@ -130,9 +130,9 @@ include 'php/header.php';
                             <form action="auction.php?id=<?php echo $auction_id; ?>" method="POST" id="bidForm">
                                 <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
                                     <div class="flex-grow">
-                                        <label for="bid_amount" class="block text-gray-700 text-sm font-medium mb-1">Your Bid (min $<?php echo number_format($auction['current_price'] + 0.01, 2); ?>)</label>
+                                        <label for="bid_amount" class="block text-gray-700 text-sm font-medium mb-1">Your Bid (min Rs <?php echo number_format($auction['current_price'] + 0.01, 2); ?>)</label>
                                         <div class="relative">
-                                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-600">$</span>
+                                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-600">Rs </span>
                                             <input type="number" id="bid_amount" name="bid_amount" step="0.01" min="<?php echo $auction['current_price'] + 0.01; ?>" class="w-full pl-8 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                                         </div>
                                         <p id="bid_amount-error" class="text-red-500 text-sm mt-1 hidden"></p>
@@ -187,7 +187,7 @@ include 'php/header.php';
                         <span class="inline-block ml-2 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">You</span>
                         <?php endif; ?>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap font-semibold">$<?php echo number_format($bid['bid_amount'], 2); ?></td>
+                    <td class="px-6 py-4 whitespace-nowrap font-semibold">Rs <?php echo number_format($bid['bid_amount'], 2); ?></td>
                     <td class="px-6 py-4 whitespace-nowrap text-gray-500"><?php echo date('M d, Y H:i:s', strtotime($bid['bid_time'])); ?></td>
                 </tr>
                 <?php endforeach; ?>
@@ -226,7 +226,7 @@ include 'php/header.php';
                 <div class="flex justify-between items-center mb-3">
                     <div>
                         <p class="text-sm text-gray-500">Current Bid:</p>
-                        <p class="text-xl font-bold text-green-600">$<?php echo number_format($similar['current_price'], 2); ?></p>
+                        <p class="text-xl font-bold text-green-600">Rs <?php echo number_format($similar['current_price'], 2); ?></p>
                     </div>
                     <div class="text-right">
                         <p class="text-sm text-gray-500">Ends in:</p>
