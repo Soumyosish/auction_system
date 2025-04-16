@@ -11,7 +11,7 @@
                         <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-instagram"></i></a>
-                        <a href="nkedin.com/in/soumyosishpal/" class="text-white hover:text-blue-200"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/soumyosishpal/" class="text-white hover:text-blue-200"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div>
