@@ -1,8 +1,10 @@
 <?php
 require_once 'php/config.php';
+require_once 'email.php'; // Include the email functionality
 
 $success = '';
 $error = '';
+$display_message = '';
 
 // Process form submission
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,9 +19,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Please enter a valid email address";
     } else {
-        // In a real application, you would send an email here
-        // For demonstration purposes, we'll just show a success message
-        $success = "Thank you for your message! We'll get back to you soon.";
+        // Send the contact message to admin email using user's email as From
+        $admin_email = 'shreyatpathi2005@gmail.com';
+        $mail_subject = "Contact Form Submission: $subject";
+        $mail_message = "<html><body>"
+            . "<h2>New Contact Form Submission</h2>"
+            . "<p><strong>Name:</strong> $name</p>"
+            . "<p><strong>Email:</strong> $email</p>"
+            . "<p><strong>Subject:</strong> $subject</p>"
+            . "<p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>"
+            . "</body></html>";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: $name <$email>" . "\r\n";
+        if(mail($admin_email, $mail_subject, $mail_message, $headers)) {
+            $success = "Thank you for your message! We'll get back to you soon.";
+            $display_message = $mail_message;
+        } else {
+            $error = "Failed to send your message. Please try again later.";
+        }
     }
 }
 
@@ -30,7 +48,7 @@ include 'php/header.php';
 <div class="bg-blue-600 text-white py-6 rounded-lg mb-8">
     <div class="container mx-auto px-4">
         <h1 class="text-3xl font-bold">Contact Us</h1>
-        <p class="text-lg mt-2">Get in touch with the BidPulse team</p>
+        <p class="text-lg mt-2">Get in touch with the BidHub team</p>
     </div>
 </div>
 
@@ -115,6 +133,7 @@ include 'php/header.php';
                     </div>
                     <div>
                         <p class="font-semibold">Email</p>
+                        <p class="text-gray-600">shreyatpathi2005@gmail.com</p>
                         <p class="text-gray-600">soumyosishpal.108@gmail.com</p>
                     </div>
                 </li>
@@ -149,6 +168,7 @@ include 'php/header.php';
         </div>
     </div>
 </div>
+
 
 <!-- FAQ Section -->
 <div class="bg-white rounded-lg shadow-md p-8 mb-8">
