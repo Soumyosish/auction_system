@@ -31,23 +31,30 @@ update_auction_status(); // Update auction status on each page load
 <body class="bg-gray-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="bg-blue-600 text-white shadow-md">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div>
-                    <a href="index.php" class="text-2xl font-bold flex items-center">
-                        <i class="fas fa-gavel mr-2"></i>
-                        <span>BidPulse</span>
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="index.php" class="hover:text-blue-200 transition">Home</a>
-                    <a href="browse.php" class="hover:text-blue-200 transition">Browse Auctions</a>
-                    <?php if(is_logged_in()): ?>
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.php" class="text-2xl font-bold flex items-center">
+                <i class="fas fa-gavel mr-2"></i>
+                <span>BidPulse</span>
+            </a>
+            <!-- Centered Navigation -->
+            <nav class="hidden md:flex flex-1 justify-center space-x-6 items-center">
+                <a href="index.php" class="hover:text-blue-200 transition">Home</a>
+                <a href="browse.php" class="hover:text-blue-200 transition">Browse Auctions</a>
+                <?php if(is_logged_in()): ?>
                     <a href="create_auction.php" class="hover:text-blue-200 transition">Create Auction</a>
-                    <?php endif; ?>
-                    <a href="about.php" class="hover:text-blue-200 transition">About Us</a>
-                </div>
-                <div class="flex items-center space-x-4">
+                <?php endif; ?>
+                <a href="about.php" class="hover:text-blue-200 transition">About Us</a>
+            </nav>
+            <!-- Hamburger Button & Right Side -->
+            <div class="flex items-center space-x-4">
+                <!-- Hamburger Button -->
+                <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Right Side (About, Login/Register, User Dropdown) -->
+                <nav class="hidden md:flex items-center space-x-4">
+                    
                     <?php if(is_logged_in()): ?>
                         <div class="relative group">
                             <button class="flex items-center hover:text-blue-200 transition">
@@ -78,25 +85,41 @@ update_auction_status(); // Update auction status on each page load
                         <a href="login.php" class="hover:text-blue-200 transition">Login</a>
                         <a href="register.php" class="bg-white text-blue-600 px-4 py-2 rounded-md hover:bg-blue-50 transition">Register</a>
                     <?php endif; ?>
-                </div>
+                </nav>
             </div>
         </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="md:hidden bg-blue-700 text-white py-2">
-        <div class="container mx-auto px-4 flex justify-between">
-            <a href="index.php" class="block py-1">Home</a>
-            <a href="browse.php" class="block py-1">Browse</a>
-            <?php if(is_logged_in()): ?>
-            <a href="create_auction.php" class="block py-1">Sell</a>
-            <a href="my_bids.php" class="block py-1">My Bids</a>
-            <?php else: ?>
-            <a href="login.php" class="block py-1">Login</a>
-            <a href="register.php" class="block py-1">Register</a>
-            <?php endif; ?>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-blue-700 text-white px-4 pb-4">
+            <nav class="flex flex-col space-y-2 pt-2 items-center">
+                <a href="index.php" class="block py-2 hover:text-blue-200 transition">Home</a>
+                <a href="browse.php" class="block py-2 hover:text-blue-200 transition">Browse Auctions</a>
+                <?php if(is_logged_in()): ?>
+                    <a href="create_auction.php" class="block py-2 hover:text-blue-200 transition">Create Auction</a>
+                <?php endif; ?>
+                <a href="about.php" class="block py-2 hover:text-blue-200 transition">About Us</a>
+                <?php if(is_logged_in()): ?>
+                    <a href="my_bids.php" class="block py-2 hover:text-blue-200 transition">My Bids</a>
+                    <a href="profile.php" class="block py-2 hover:text-blue-200 transition">My Profile</a>
+                    <a href="my_auctions.php" class="block py-2 hover:text-blue-200 transition">My Auctions</a>
+                    <?php if(is_admin()): ?>
+                    <a href="admin_dashboard.php" class="block py-2 hover:text-blue-200 transition">Admin Panel</a>
+                    <?php endif; ?>
+                    <a href="logout.php" class="block py-2 hover:text-blue-200 transition">Logout</a>
+                <?php else: ?>
+                    <a href="login.php" class="block py-2 hover:text-blue-200 transition">Login</a>
+                    <a href="register.php" class="block py-2 hover:text-blue-200 transition">Register</a>
+                <?php endif; ?>
+            </nav>
         </div>
-    </div>
-
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
     <!-- Main Content Container -->
     <main class="container mx-auto px-4 py-6 flex-grow">

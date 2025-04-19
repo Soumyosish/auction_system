@@ -62,6 +62,9 @@
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-3"></i>
                             <span>soumyosishpal.108@gmail.com</span>
+                            <span>shreyatpathi2005@gmail.com</span>
+                            <span>mraj773929@gmail.com</span>
+                            <span>tushar01mishra01@gmail.com</span>
                         </li>
                     </ul>
                 </div>
