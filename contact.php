@@ -135,6 +135,8 @@ include 'php/header.php';
                         <p class="font-semibold">Email</p>
                         <p class="text-gray-600">shreyatpathi2005@gmail.com</p>
                         <p class="text-gray-600">soumyosishpal.108@gmail.com</p>
+                        <p class="text-gray-600">mraj773929@gmail.com</p>
+                        <p class="text-gray-600">tushar01mishra01@gmail.com</p>
                     </div>
                 </li>
                 <li class="flex items-start">
