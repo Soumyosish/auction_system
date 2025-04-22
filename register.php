@@ -83,11 +83,36 @@ include 'php/header.php';
             </div>
         </div>
 
-        <div class="mb-4">
+        <!-- <div class="mb-4">
             <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
             <input type="text" id="username" name="username" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
             <p id="username-error" class="text-red-500 text-sm mt-1 hidden"></p>
-        </div>
+        </div> -->
+        <div class="mb-4">
+    <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
+    <input type="text" id="username" name="username" 
+           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+           value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" 
+           oninput="validateUsername(this)"
+           required>
+    <p id="username-error" class="text-red-500 text-sm mt-1 hidden">Username cannot contain single quotes (')</p>
+</div>
+
+<script>
+function validateUsername(input) {
+    const errorElement = document.getElementById('username-error');
+    const alphanumericRegex = /^[a-zA-Z0-9]*$/; // Regular expression for alphanumeric characters only
+
+    if (!alphanumericRegex.test(input.value)) {
+        errorElement.textContent = "Username can only contain letters and numbers";
+        errorElement.classList.remove('hidden');
+        input.setCustomValidity("Username can only contain letters and numbers");
+    } else {
+        errorElement.classList.add('hidden');
+        input.setCustomValidity("");
+    }
+}
+</script>
 
         <div class="mb-4">
             <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
